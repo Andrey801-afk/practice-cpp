@@ -1,105 +1,100 @@
-#include <string>
 #include <iostream>
 #include <vector>
+#include "Patient.h"
+#include "Doctor.h"
+#include "Appointment.h"
+#include "Disease.h"
+#include "Medicine.h"
 
-enum class Specialization {
-    Therapist,      // Терапевт
-    Surgeon,        // Хирург
-    Ophthalmologist,// Окулист
-    Pediatrician,   // Педиатр
-    Neurologist,    // Невролог
-    Cardiologist,   // Кардиолог
-    ENT             // ЛОР
-}; 
+int main() {
+    setlocale(LC_ALL, "Russian");
+    
+    std::cout << "=== ЗДРАВООХРАНЕНИЕ ===" << std::endl << std::endl;
+    
+    // 7 ПАЦИЕНТОВ
+    std::vector<Patient> patients = {
+        Patient("Иванов И.И.", "12.05.1980", "1234567890"),
+        Patient("Петрова А.С.", "23.08.1995", "0987654321"),
+        Patient("Сидоров П.И.", "01.01.1970", "1122334455"),
+        Patient("Кузнецова Е.В.", "15.03.2001", "5566778899"),
+        Patient("Смирнов А.Д.", "30.11.1988", "6677889900"),
+        Patient("Васильев Д.К.", "05.07.1965", "4433221100"),
+        Patient("Морозова О.П.", "19.09.1992", "9988776655")
+    };
 
-enum class AppointmentStatus {
-    Scheduled,   // Запланирован
-    InProgress,  // Идет сейчас
-    Completed,   // Завершен
-    Cancelled,   // Отменен
-    Waiting      // Ожидание
-};
+    // 7 ВРАЧЕЙ
+    std::vector<Doctor> doctors = {
+        Doctor("Соколов", Specialization::Therapist, 15),
+        Doctor("Волкова", Specialization::Surgeon, 8),
+        Doctor("Лебедев", Specialization::Ophthalmologist, 20),
+        Doctor("Новикова", Specialization::Pediatrician, 5),
+        Doctor("Орлов", Specialization::Neurologist, 12),
+        Doctor("Зайцева", Specialization::Cardiologist, 10),
+        Doctor("Павлов", Specialization::ENT, 7)
+    };
 
-enum class UrgencyLevel {
-    Routine,       // Плановый (2-4 недель)
-    Urgent,        // Срочный (в течение дня)
-    Emergency,     // Экстренный (1-2 часа)
-    Critical       // Реанимация (сейчас)
-};
+    // 7 ПРИЕМОВ
+    std::vector<Appointment> appointments = {
+        Appointment("20.10.2023 09:00", 30, AppointmentStatus::Waiting, UrgencyLevel::Routine),
+        Appointment("20.10.2023 09:30", 30, AppointmentStatus::InProgress, UrgencyLevel::Emergency),
+        Appointment("20.10.2023 10:00", 30, AppointmentStatus::Waiting, UrgencyLevel::Urgent),
+        Appointment("21.10.2023 14:00", 45, AppointmentStatus::Scheduled, UrgencyLevel::Routine),
+        Appointment("21.10.2023 14:30", 30, AppointmentStatus::Scheduled, UrgencyLevel::Critical),
+        Appointment("22.10.2023 11:00", 30, AppointmentStatus::Scheduled, UrgencyLevel::Urgent),
+        Appointment("22.10.2023 11:30", 30, AppointmentStatus::Scheduled, UrgencyLevel::Routine)
+    };
 
-enum class MedicineType {
-    Free,          // по ОМС
-    Quota,         // По квоте 
-    Paid,          // Платно 
-    Preferential  // Льготное
-};
+    // 7 БОЛЕЗНЕЙ
+    std::vector<Disease> diseases = {
+        Disease("Грипп", "J11"),
+        Disease("ОРВИ", "J06"),
+        Disease("Гипертония", "I10"),
+        Disease("Диабет", "E11"),
+        Disease("Гастрит", "K29"),
+        Disease("Мигрень", "G43"),
+        Disease("Пневмония", "J18")
+    };
 
-// Пациент, Врач, Прием, Болезнь, Лекарство
-class Patient{
-    private:
-        std::string _id;
-        std::string _fullName;
-        std::string _birthDate;
-        std::string _policyNumber;
-    public:
-        Patient(std::string fullName, std::string birthDate, std::string numberPolicy);
-        int getId() const;
-        int registerPatient();
-        void bookAppointment();
-        void getMedicalHistory();
-};
+    // 7 ЛЕКАРСТВ
+    std::vector<Medicine> medicines = {
+        Medicine("Аспирин", "500мг", "Bayer", MedicineType::Free),
+        Medicine("Нурофен", "200мг", "Reckitt", MedicineType::Paid),
+        Medicine("Амоксициллин", "250мг", "Hemofarm", MedicineType::Quota),
+        Medicine("Но-шпа", "40мг", "Sanofi", MedicineType::Preferential),
+        Medicine("Супрастин", "25мг", "Egis", MedicineType::Free),
+        Medicine("Валерьянка", "20мг", "Фармстандарт", MedicineType::Paid),
+        Medicine("Парацетамол", "500мг", "Фармстандарт", MedicineType::Free)
+    };
 
-class Doctor
-{
-    private: 
-        std::string _id;
-        std::string _fullName;
-        Specialization _specialization;
-        int _experienceYears;
-
-    public:
-        std::string GetId();
-        Doctor(std::string fullName, std::string specialization, int experienceYears);
-};
-
-class Appointment {
-    private:
-        std::string _id;
-        std::string _dateTime;
-        int _durationMinutes;
-        AppointmentStatus _status;
-        UrgencyLevel _urgency; 
-
-    public:
-        Appointment(std::string dateTime, int durationMinutes, AppointmentStatus status, UrgencyLevel urgecny);
-        std::string GetId();
-        int GetScheduleTime(); // Запросить время приема
-        int SetScheduleTime(); // Устоновить время приема
-        void CancelAppointment();
-        void CreateProtocol();
-};
-
-class Disease {
-    private:
-        std::string _id;
-        std::string _name;
-        std::string _mkbCode; // МКБ-10 (международная классификация болезней)
-    public:
-        Disease(std::string name, std::string mkdCode);
-        std::string GetId() const;
-        void AddSymptom(std::string symptom);
-        void AssignTreatment(std::string treatment); 
-        std::string GetRecommendations();
-};
-
-class Medicine {
-    private:
-        std::string _id;
-        std::string _tradeName;
-        std::string _dosage;
-        std::string _manufacturer;
-        MedicineType _medType; 
-    public:
-        Medicine(std::string tradeName, std::string dosege, std::string manufacturer, MedicineType medType);
-        std::string GetId() const;
-};
+    // ДЕМОНСТРАЦИЯ
+    std::cout << "--- Пациенты ---" << std::endl;
+    for(auto& p : patients) p.RegisterPatient();
+    
+    std::cout << "\n--- Врачи ---" << std::endl;
+    doctors[0].ConductExam();
+    doctors[1].WritePrescription();
+    doctors[2].OpenSickLeave();
+    
+    std::cout << "\n--- Приемы ---" << std::endl;
+    appointments[0].CreateProtocol();
+    appointments[4].CancelAppointment();
+    
+    std::cout << "\n--- Болезни ---" << std::endl;
+    diseases[0].AddSymptom("Температура 38.5");
+    diseases[0].AssignTreatment("Покой");
+    
+    std::cout << "\n--- Лекарства ---" << std::endl;
+    for(auto& m : medicines) m.AddToStock(50);
+    
+    // СТАТИСТИКА
+    std::cout << "\n=== ИТОГО ===" << std::endl;
+    std::cout << "Пациентов: " << patients.size() << std::endl;
+    std::cout << "Врачей: " << doctors.size() << std::endl;
+    std::cout << "Приемов: " << appointments.size() << std::endl;
+    std::cout << "Болезней: " << diseases.size() << std::endl;
+    std::cout << "Лекарств: " << medicines.size() << std::endl;
+    std::cout << "ВСЕГО: " << patients.size() + doctors.size() + appointments.size() 
+              + diseases.size() + medicines.size() << " объектов" << std::endl;
+    
+    return 0;
+}
