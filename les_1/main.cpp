@@ -11,7 +11,6 @@ int main() {
     
     std::cout << "=== ЗДРАВООХРАНЕНИЕ ===" << std::endl << std::endl;
     
-    // 7 ПАЦИЕНТОВ
     std::vector<Patient> patients = {
         Patient("Иванов И.И.", "12.05.1980", "1234567890"),
         Patient("Петрова А.С.", "23.08.1995", "0987654321"),
@@ -22,7 +21,6 @@ int main() {
         Patient("Морозова О.П.", "19.09.1992", "9988776655")
     };
 
-    // 7 ВРАЧЕЙ
     std::vector<Doctor> doctors = {
         Doctor("Соколов", Specialization::Therapist, 15),
         Doctor("Волкова", Specialization::Surgeon, 8),
@@ -33,7 +31,6 @@ int main() {
         Doctor("Павлов", Specialization::ENT, 7)
     };
 
-    // 7 ПРИЕМОВ
     std::vector<Appointment> appointments = {
         Appointment("20.10.2023 09:00", 30, AppointmentStatus::Waiting, UrgencyLevel::Routine),
         Appointment("20.10.2023 09:30", 30, AppointmentStatus::InProgress, UrgencyLevel::Emergency),
@@ -44,7 +41,6 @@ int main() {
         Appointment("22.10.2023 11:30", 30, AppointmentStatus::Scheduled, UrgencyLevel::Routine)
     };
 
-    // 7 БОЛЕЗНЕЙ
     std::vector<Disease> diseases = {
         Disease("Грипп", "J11"),
         Disease("ОРВИ", "J06"),
@@ -55,7 +51,6 @@ int main() {
         Disease("Пневмония", "J18")
     };
 
-    // 7 ЛЕКАРСТВ
     std::vector<Medicine> medicines = {
         Medicine("Аспирин", "500мг", "Bayer", MedicineType::Free),
         Medicine("Нурофен", "200мг", "Reckitt", MedicineType::Paid),
@@ -66,7 +61,6 @@ int main() {
         Medicine("Парацетамол", "500мг", "Фармстандарт", MedicineType::Free)
     };
 
-    // ДЕМОНСТРАЦИЯ
     std::cout << "--- Пациенты ---" << std::endl;
     for(auto& p : patients) p.RegisterPatient();
     
@@ -86,7 +80,6 @@ int main() {
     std::cout << "\n--- Лекарства ---" << std::endl;
     for(auto& m : medicines) m.AddToStock(50);
     
-    // СТАТИСТИКА
     std::cout << "\n=== ИТОГО ===" << std::endl;
     std::cout << "Пациентов: " << patients.size() << std::endl;
     std::cout << "Врачей: " << doctors.size() << std::endl;
