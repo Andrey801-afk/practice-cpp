@@ -1,4 +1,4 @@
 build:
-	g++ main.cpp Patient.cpp Doctor.cpp Appointment.cpp Disease.cpp Medicine.cpp -o healthcare -std=c++17
+	g++ main.cpp Triangle.cpp -o triangle_program
 run:
-	./healthcare
+	./triangle_program
