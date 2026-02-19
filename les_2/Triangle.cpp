@@ -36,7 +36,7 @@ bool Triangle::SetSides(double a, double b, double c) {
         _c = c;
         return true;
     } else {
-        cout << "Ошибка: Невозможно установить стороны (" 
+        cout << "Невозможно установить стороны (" 
              << a << ", " << b << ", " << c 
              << "). Треугольник с такими параметрами не существует." << endl;
         return false;
@@ -51,7 +51,7 @@ void Triangle::GetSides(double &a, double &b, double &c) const {
 
 bool Triangle::Scale(double factor) {
     if (factor <= 0) {
-        cout << "Ошибка: Коэффициент масштабирования должен быть положительным числом." << endl;
+        cout << "Коэффициент масштабирования должен быть положительным числом." << endl;
         return false;
     }
     

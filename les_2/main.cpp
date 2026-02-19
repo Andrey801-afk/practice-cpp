@@ -15,7 +15,7 @@ int main() {
 
     cout << "2. Установка корректных сторон (3, 4, 5):" << endl;
     if (tr1.SetSides(3, 4, 5)) {
-        cout << "Треугольник успешно создан." << endl;
+        cout << "Треугольник создан." << endl;
         tr1.PrintInfo();
     }
     cout << endl;
