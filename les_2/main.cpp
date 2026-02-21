@@ -20,7 +20,7 @@ int main() {
     }
     cout << endl;
 
-    cout << "3. Чтение свойств через метод getSides:" << endl;
+    cout << "3. Чтение свойств через метод GetSides:" << endl;
     double x, y, z;
     tr1.GetSides(x, y, z);
     cout << "Полученные значения: " << x << ", " << y << ", " << z << endl;
@@ -32,7 +32,7 @@ int main() {
     }
     cout << endl;
 
-    cout << "5. Попытка уменьшения с некорректным коэффициентом (-1):" << endl;
+    cout << "5. Уменьшения с некорректным коэффициентом (-1):" << endl;
     tr1.Scale(-1);
     cout << endl;
 
