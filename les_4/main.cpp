@@ -4,12 +4,6 @@
 int main() {
     setlocale(LC_ALL, "Russian");
     
-    std::cout << "╔═══════════════════════════════════=════════╗" << std::endl;
-    std::cout << "║  Лабораторная работа: Класс Rectangle      ║" << std::endl;
-    std::cout << "║  Перегрузка операторов                     ║" << std::endl;
-    std::cout << "╚════════════════════════════════════════════╝" << std::endl;
-    std::cout << std::endl;
-    
     std::cout << "\nТЕСТ 1: Конструктор по умолчанию" << std::endl;
     Rectangle r1;
     r1.Print();
@@ -80,14 +74,14 @@ int main() {
     std::cout << "После отражения (-r19):" << std::endl;
     r20.Print();
     
-    std::cout << "\nТЕСТ 10: Цепочка операций" << std::endl;
+    std::cout << "\nТЕСТ 10: Комбинированная операций 1" << std::endl;
     Rectangle r21(1, 1, 3, 2);
     Rectangle r22(0, 0, 2, 2);
     Rectangle r23 = -(r21 + r22);
     std::cout << "Результат -(r21 + r22):" << std::endl;
     r23.Print();
     
-    std::cout << "\nТЕСТ 11: Комбинированная операция" << std::endl;
+    std::cout << "\nТЕСТ 11: Комбинированная операция 2" << std::endl;
     Rectangle r24(0, 0, 5, 5);
     Rectangle r25(0, 0, 3, 3);
     Rectangle r26(0, 0, 2, 2);
