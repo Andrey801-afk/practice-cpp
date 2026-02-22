@@ -3,7 +3,7 @@
 #include <algorithm>
 
 Rectangle::Rectangle() {
-    std::cout << ">>>Вызван конструктор по умолчанию" << std::endl;
+    std::cout << ">>> Вызван конструктор по умолчанию" << std::endl;
     _x = 0;
     _y = 0;
     _width = 0;
@@ -11,7 +11,7 @@ Rectangle::Rectangle() {
 }
 
 Rectangle::Rectangle(double x, double y, double width, double height) {
-    std::cout << ">>>Вызван конструктор с параметрами" << std::endl;
+    std::cout << ">>> Вызван конструктор с параметрами" << std::endl;
     
     if (width <= 0 || height <= 0) {
         std::cout << "Размеры не могут быть <= 0" << std::endl;
@@ -29,7 +29,7 @@ Rectangle::Rectangle(double x, double y, double width, double height) {
 
 
 Rectangle::Rectangle(const Rectangle& other) {
-    std::cout << ">>>Вызван конструктор копирования" << std::endl;
+    std::cout << ">>> Вызван конструктор копирования" << std::endl;
     _x = other._x;
     _y = other._y;
     _width = other._width;
@@ -37,13 +37,13 @@ Rectangle::Rectangle(const Rectangle& other) {
 }
 
 Rectangle::~Rectangle() {
-    std::cout << ">>> прямоугольника (" 
+    std::cout << ">>> Прямоугольника (" 
               << _width << "x" << _height << ")" << std::endl;
 }
 
 
 Rectangle& Rectangle::operator=(const Rectangle& other) {
-    std::cout << ">>>Вызван оператор присваивания" << std::endl;
+    std::cout << ">>> Вызван оператор присваивания" << std::endl;
     
     if (this == &other) {
         return *this;
@@ -58,7 +58,7 @@ Rectangle& Rectangle::operator=(const Rectangle& other) {
 }
 
 Rectangle Rectangle::operator+(const Rectangle& other) const {
-    std::cout << ">>>Сложение двух прямоугольников" << std::endl;
+    std::cout << ">>> Сложение двух прямоугольников" << std::endl;
     
     if (this->IsEmpty()) {
         return Rectangle(other._x, other._y, other._width, other._height);
@@ -78,7 +78,7 @@ Rectangle Rectangle::operator+(const Rectangle& other) const {
 
 
 Rectangle Rectangle::operator-(const Rectangle& other) const {
-    std::cout << ">>>Бинарная разность прямоугольников" << std::endl;
+    std::cout << ">>> Бинарная разность прямоугольников" << std::endl;
     
     if (this->IsEmpty() || other.IsEmpty()) {
         std::cout << "Один из прямоугольников пустой" << std::endl;
@@ -128,7 +128,7 @@ Rectangle Rectangle::operator-(const Rectangle& other) const {
 }
 
 Rectangle Rectangle::operator-() const {
-    std::cout << ">>>Унарное отображение прямоугольника" << std::endl;
+    std::cout << ">>> Унарное отображение прямоугольника" << std::endl;
     
     if (this->IsEmpty()) {
         return Rectangle();
@@ -137,25 +137,25 @@ Rectangle Rectangle::operator-() const {
     double newX = -_x - _width;
     double newY = -_y - _height;
     
-    std::cout << "Отображение: (" << _x << "," << _y << ") -> (" 
+    std::cout << " Отображение: (" << _x << "," << _y << ") -> (" 
               << newX << "," << newY << ")" << std::endl;
     
     return Rectangle(newX, newY, _width, _height);
 }
 
 void Rectangle::Print() const {
-    std::cout << ">>>Информация о прямоугольнике" << std::endl;
+    std::cout << ">>> Информация о прямоугольнике" << std::endl;
     
     if (this->IsEmpty()) {
-        std::cout << "Прямоугольник: ПУСТОЙ" << std::endl;
-        std::cout << "Площадь: 0" << std::endl;
+        std::cout << "  Прямоугольник: ПУСТОЙ" << std::endl;
+        std::cout << "  Площадь: 0" << std::endl;
     } else {
-        std::cout << "Левый нижний угол: (" << _x << ", " << _y << ")" << std::endl;
-        std::cout << "Ширина: " << _width << std::endl;
-        std::cout << "Высота: " << _height << std::endl;
-        std::cout << "Правый верхний угол: (" << (_x + _width) << ", " << (_y + _height) << ")" << std::endl;
-        std::cout << "Площадь: " << this->GetArea() << std::endl;
-        std::cout << "Периметр: " << (2 * (_width + _height)) << std::endl;
+        std::cout << "  Левый нижний угол: (" << _x << ", " << _y << ")" << std::endl;
+        std::cout << "  Ширина: " << _width << std::endl;
+        std::cout << "  Высота: " << _height << std::endl;
+        std::cout << "  Правый верхний угол: (" << (_x + _width) << ", " << (_y + _height) << ")" << std::endl;
+        std::cout << "  Площадь: " << this->GetArea() << std::endl;
+        std::cout << "  Периметр: " << (2 * (_width + _height)) << std::endl;
     }
 }
 

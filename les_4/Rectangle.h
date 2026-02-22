@@ -1,7 +1,5 @@
 #pragma once
 
-
-
 class Rectangle {
 private:
     double _x;       
