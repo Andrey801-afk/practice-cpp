@@ -9,7 +9,7 @@ int main() {
         Vector v1;
         v1.Print();
     } catch (const std::exception& e) {
-        std::cout << "!!! ПОЙМАНО ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
+        std::cout << "!!! ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
     }
     
     std::cout << "\n=== ТЕСТ 2: Конструктор с параметром ===" << std::endl;
@@ -22,7 +22,7 @@ int main() {
         v2[4] = 50;
         v2.Print();
     } catch (const std::exception& e) {
-        std::cout << "!!! ПОЙМАНО ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
+        std::cout << "!!! ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
     }
     
     std::cout << "\n=== ТЕСТ 3: Исключение 1 (размер > MAX) ===" << std::endl;
@@ -30,9 +30,9 @@ int main() {
         Vector v3(MAX_VECTOR_SIZE + 100);
         v3.Print();
     } catch (const VectorSizeException& e) {
-        std::cout << "!!! ПОЙМАНО VectorSizeException: " << e.what() << std::endl;
+        std::cout << "!!! VectorSizeException: " << e.what() << std::endl;
     } catch (const std::exception& e) {
-        std::cout << "!!! ПОЙМАНО ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
+        std::cout << "!!! ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
     }
     
     std::cout << "\n=== ТЕСТ 4: Исключение 2 (индекс < 0) ===" << std::endl;
@@ -42,9 +42,9 @@ int main() {
         int value = v4[-1];
         std::cout << "Значение: " << value << std::endl;
     } catch (const VectorIndexException& e) {
-        std::cout << "!!! ПОЙМАНО VectorIndexException: " << e.what() << std::endl;
+        std::cout << "!!! VectorIndexException: " << e.what() << std::endl;
     } catch (const std::exception& e) {
-        std::cout << "!!! ПОЙМАНО ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
+        std::cout << "!!! ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
     }
     
     std::cout << "\n=== ТЕСТ 5: Исключение 3 (индекс >= size) ===" << std::endl;
@@ -54,9 +54,9 @@ int main() {
         int value = v5[10];
         std::cout << "Значение: " << value << std::endl;
     } catch (const VectorIndexException& e) {
-        std::cout << "!!! ПОЙМАНО VectorIndexException: " << e.what() << std::endl;
+        std::cout << "!!! VectorIndexException: " << e.what() << std::endl;
     } catch (const std::exception& e) {
-        std::cout << "!!! ПОЙМАНО ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
+        std::cout << "!!! ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
     }
     
     std::cout << "\n=== ТЕСТ 6: Оператор + (добавление константы) ===" << std::endl;
@@ -70,7 +70,7 @@ int main() {
         std::cout << "После добавления 10:" << std::endl;
         v7.Print();
     } catch (const std::exception& e) {
-        std::cout << "!!! ПОЙМАНО ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
+        std::cout << "!!! ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
     }
     
     std::cout << "\n=== ТЕСТ 7: Оператор - (удаление элементов) ===" << std::endl;
@@ -84,7 +84,7 @@ int main() {
         std::cout << "После удаления 2 элементов:" << std::endl;
         v9.Print();
     } catch (const std::exception& e) {
-        std::cout << "!!! ПОЙМАНО ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
+        std::cout << "!!! ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
     }
     
     std::cout << "\n=== ТЕСТ 8: Исключение 5 (удаление из пустого) ===" << std::endl;
@@ -94,9 +94,9 @@ int main() {
         Vector v11 = v10 - 1;
         v11.Print();
     } catch (const VectorOperationException& e) {
-        std::cout << "!!! ПОЙМАНО VectorOperationException: " << e.what() << std::endl;
+        std::cout << "!!! VectorOperationException: " << e.what() << std::endl;
     } catch (const std::exception& e) {
-        std::cout << "!!! ПОЙМАНО ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
+        std::cout << "!!! ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
     }
     
     std::cout << "\n=== ТЕСТ 9: Оператор () (размер) ===" << std::endl;
@@ -105,7 +105,7 @@ int main() {
         std::cout << "Размер вектора через operator(): " << v12() << std::endl;
         std::cout << "Размер вектора через GetSize(): " << v12.GetSize() << std::endl;
     } catch (const std::exception& e) {
-        std::cout << "!!! ПОЙМАНО ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
+        std::cout << "!!! ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
     }
     
     std::cout << "\n=== ТЕСТ 10: Копирование и присваивание ===" << std::endl;
@@ -125,7 +125,7 @@ int main() {
         std::cout << "Присваивание вектора:" << std::endl;
         v15.Print();
     } catch (const std::exception& e) {
-        std::cout << "!!! ПОЙМАНО ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
+        std::cout << "!!! ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
     }
     
     std::cout << "\n=== ТЕСТ 11: Цепочка операций ===" << std::endl;
@@ -140,7 +140,7 @@ int main() {
         std::cout << "Результат (v16 + 5) - 1:" << std::endl;
         v17.Print();
     } catch (const std::exception& e) {
-        std::cout << "!!! ПОЙМАНО ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
+        std::cout << "!!! ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
     }
     
     return 0;
