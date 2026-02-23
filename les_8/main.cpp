@@ -37,7 +37,7 @@ std::string InsertCommaBeforeAnd(const std::string& input) {
     bool isFirstWord = true;
     
     while (iss >> word) {
-        // Проверяем, является ли слово "and" 
+        // Является ли слово "and" 
         std::string lowerWord = word;
         for (char& c : lowerWord) {
             c = std::tolower(static_cast<unsigned char>(c));
@@ -142,7 +142,6 @@ int main() {
             }
             
             case 2: {
-                // Задание 2: Подсчёт симметричных слов
                 std::cout << "\nЗАДАНИЕ 2: Симметричные слова" << std::endl;
                 int count = CountPalindromes(input);
                 std::cout << "Количество симметричных слов: " << count << std::endl;
@@ -150,7 +149,6 @@ int main() {
             }
             
             case 3: {
-                // Оба задания
                 std::cout << "\nЗАДАНИЕ 1 и 2" << std::endl;
                 
                 std::cout << std::endl;
