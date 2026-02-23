@@ -37,7 +37,6 @@ std::string InsertCommaBeforeAnd(const std::string& input) {
     bool isFirstWord = true;
     
     while (iss >> word) {
-        // Является ли слово "and" 
         std::string lowerWord = word;
         for (char& c : lowerWord) {
             c = std::tolower(static_cast<unsigned char>(c));
