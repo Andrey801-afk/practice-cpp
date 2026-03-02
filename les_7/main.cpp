@@ -143,5 +143,12 @@ int main() {
         std::cout << "!!! ИСКЛЮЧЕНИЕ: " << e.what() << std::endl;
     }
     
+    std::cout << "\n=== ТЕСТ 12: PushBack и исключение №4 ===" << std::endl;
+    try {
+        Vector v(MAX_VECTOR_SIZE);
+        v.PushBack(42);
+    } catch (const VectorOperationException& e) {
+        std::cout << "!!! VectorOperationException: " << e.what() << std::endl;
+    } 
     return 0;
 }

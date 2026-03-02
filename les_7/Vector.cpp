@@ -160,7 +160,6 @@ Vector Vector::operator-(int n) {
     
     Vector result(*this);
     result._lenght -= n;
-    
     return result;
 }
 
@@ -184,22 +183,25 @@ void Vector::Print() const {
 void Vector::PushBack(int value) {
     std::cout << ">>> Добавление элемента: " << value << std::endl;
     
+    if (_lenght + 1 > MAX_VECTOR_SIZE) {
+        std::string msg = "Исключение 4: Попытка увеличить размер вектора до " + 
+                         std::to_string(_lenght + 1) + ", что превышает MAX (" + 
+                         std::to_string(MAX_VECTOR_SIZE) + ")";
+        std::cout << "!!! " << msg << std::endl;
+        throw VectorOperationException(msg);
+    }
+    
     if (_lenght >= _capacity) {
-        // Увеличиваем ёмкость
         int newCapacity = _capacity * 2;
         
         if (newCapacity > MAX_VECTOR_SIZE) {
-            std::string msg = "Исключение 4: Превышен максимальный размер вектора";
-            std::cout << "!!! " << msg << std::endl;
-            throw VectorOperationException(msg);
+            newCapacity = MAX_VECTOR_SIZE;
         }
         
         int* newData = new int[newCapacity];
-        
         for (int i = 0; i < _lenght; i++) {
             newData[i] = _data[i];
         }
-        
         delete[] _data;
         _data = newData;
         _capacity = newCapacity;

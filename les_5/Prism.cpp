@@ -1,5 +1,6 @@
 #include "Prism.h"
 #include <iomanip>
+#include <cmath>
 
 Prism::Prism() : Square() {
     std::cout << ">>> Вызван конструктор по умолчанию" << std::endl;
@@ -42,6 +43,7 @@ Prism& Prism::operator=(const Prism& other) {
 
 double Prism::GetDiagonal() const{
     return std::sqrt(2 * _side * _side + _height * _height);
+
 }
 
 double Prism::GetPerimeter() const {
