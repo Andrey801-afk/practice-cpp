@@ -3,7 +3,7 @@
 #include "Driver.h"
 #include "Automobile.h"
 
-class CarDriver : virtual public Driver, virtual public Automobile {
+class CarDriver : public Driver, public Automobile {
     protected:
         std::string _employeeId;   
         double _rating;            

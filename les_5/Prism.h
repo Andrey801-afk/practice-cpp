@@ -14,6 +14,8 @@ class Prism : public Square {
 
         Prism& operator=(const Prism& other);
 
+        double GetDiagonal() const override;
+        double GetPerimeter() const override;
         double GetArea() const override;     
         void Print() const override;           
 

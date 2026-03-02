@@ -40,6 +40,14 @@ Prism& Prism::operator=(const Prism& other) {
     return *this;
 }
 
+double Prism::GetDiagonal() const{
+    return std::sqrt(2 * _side * _side + _height * _height);
+}
+
+double Prism::GetPerimeter() const {
+    return 4 * _side * _height;
+}
+
 double Prism::GetArea() const {
     double baseArea = _side * _side;          
     double sideArea = _side * _height;        
@@ -57,6 +65,8 @@ void Prism::Print() const {
     std::cout << "  Объём: " << this->GetVolume() << std::endl;
     std::cout << "  -----------------------------------" << std::endl;
 }
+
+
 
 double Prism::GetVolume() const {
     return _side * _side * _height;
